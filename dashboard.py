@@ -45,7 +45,7 @@ server = app.server
 app.title = "Honey Report"
 app.layout = html.Div(children=[
         html.H1(children=['USDA Honey Bee Dashboard']),
-        html.H2(children = 'Created by Edwin Ramirez'),
+        html.H2(children = 'Created by Edwin A. Ramirez'),
 
         #paragraph div
         #Alternative method to make this cleaner would be to be write 
