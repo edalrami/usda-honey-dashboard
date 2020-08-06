@@ -124,7 +124,7 @@ app.layout = html.Div(children=[
                     #paragraph
                     html.Div([
                         html.H2('References'),
-                        dcc.Link('Source Code', href='https://github.com/edalrami/viz-storytelling'),
+                        dcc.Link('Source Code', href='https://github.com/edalrami/usda-honey-dashboard'),
                         html.Br(),
                         dcc.Link('USDA Honey Production Data', href = 'https://usda.library.cornell.edu/concern/publications/hd76s004z?locale=en&page=3#release-items'),
                         html.Br(),

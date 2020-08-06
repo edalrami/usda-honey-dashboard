@@ -1,2 +1,6 @@
 # Don't track content of these folders
 venv
+
+*.pyc
+*.pyo
+*.vscode
