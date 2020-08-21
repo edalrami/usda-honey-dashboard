@@ -86,40 +86,20 @@ app.layout = html.Div(children=[
                     		' (2000-2018). With the utilization of the USDA data that is recorded annually, a series of dynamic' + \
                     		' visualizations will be used to study where in the United States certain stressors have' + \
                     		' affected each region more than others. The first of these dynamic visualizations is the choropleth map' + \
-                    		' below. The map contains two dynamic features that will alter the story told by the data: The dropdown menu' + \
-                    		' (includes a specific stressor to be mapped), and the slider (the quarterly time period of the data to be mapped).' + \
-                    		' The reasoning behind using a choropleth map is not to show progression over time, which would likely be shown on a standard line chart.' + \
-                    		' However, visualizing fifty lines over time could get visually distracting, and be difficult to interpret. Thus, the purpose of this visual' + \
-                    		' is to effectively illustrate the regions of the US during each individual quarter from 2015-2018. In fact, this visual is further supported' + \
-                    		' with the second dynamic visualization, which also contains dynamic utilities, such as a dropdown menu. The visual is broken down into further detail below.'),
+                    		'. The map contains two dynamic features that will alter the story told by the data: The dropdown menu' + \
+                    		' (includes a specific stressor to be mapped), and the slider (the quarterly time period of the data to be mapped).'),
                            
-                    html.P('The second dynamic visual is to be used in conjunction with the choropleth map displayed above. When analyzing a specific quarter and stressor on the choropleth map, ' +\
-                		   'the dynamic line chart can provide a deeper insight on showing the progression of all stressors from 2015-2018 for a specified state. Therefore, ' +\
+                    html.P('The dynamic line chart can provide a deeper insight on showing the progression of all stressors from 2015-2018 for a specified state. Therefore, ' +\
                 		   'this visual succeeds at effectively illustrating which stressors are affecting each state over time, the percentage of colonies lost, and the max ' + \
                 		   'value for each stressor indicated by a marker. Thus, by using the choropleth map for specific quarters, a user can visually see which states may be interesting ' + \
                 		   'to view more in depth in the dynamic line plot.'),
-                           
-                    html.P('A few states that illustrate vastly different stories include California, Nebraska, Hawaii, Florida, and Kansas. Looking at California shows that Varroa Mites' + \
-                		   ' are the dominant stressor in this state, and that at times diseases and pesticide use follow the trends of the percentage of colonies that are lost. It can also' + \
-                		   ' be seen that pesticide use at times is effective at managing other pests and Varroa Mites, but not sufficiently enough in the case of the latter. Taking a look' + \
-                		   ' at Hawaii illustrates that percentage loss of colonies is relatively low, and that varroa mites and other pests follow seasonal trends. Unfortunately, this also' + \
-                		   ' shows that the lack of pesticide use in Hawaii is potentially the reason that 91 percent of populations are affected by pests, and that this' + \
-                		   ' could be the cause of the infestation from late 2017 to the end of 2018. However, there are no populations recorded to be affected by diseases.' +\
-                		   ' This is probably due to the isolation of the Hawaiian islands.'),
                           
-                    html.P('The third and final dynamic visualization is a bubble chart that switches focus to the market of the honey industry by analyzing the 15 top producing states' + \
+                    html.P('The third and final dynamic visualization is a bubble chart that switches focus to the market of the honey industry by analyzing the 10 top producing states' + \
                 		   ' from 2000-2018. This visual has one dynamic feature, which is the slider that indicates the year. Each bubble is representative of a state. The legend' + \
-                		   ' to the right illustrates the top 15 in order by number of colonies, where the top indicates the state with the largest population of honey bees.' + \
+                		   ' to the right illustrates the top 10 in order by number of colonies, where the top indicates the state with the largest population of honey bees.' + \
                 		   ' The population size is also reflected in the size of each bubble to provide a better visual comparison. The y-axis is the average honey yield per colony in pounds,' + \
                 		   ' while the x-axis is the average price per pound. This visual can ultimately show the transition of states in price, production, and population over 18 years of data.' +\
-                		   ' Finally, hovering over any of the bubbles triggers a tooltip popup that summarizes the information about the current observation. One aspect I found interesting' + \
-                		   ' was seeing the dramatic price difference per pound of honey in the states with smaller populations, such as New York in 2018. One story' + \
-                		   ' that is also interesting to follow is the population sizes of California and North Dakota. California used to be the state with the largest number of colonies' + \
-                		   ' until 2007. After 2007 the number of colonies in North Dakota dramatically increases. Additionally, if we look at the years prior to the start of the CCD epidemic' + \
-                		   ' we can see that most states were similar in price and yield per pound, such as in the years from 2000-2005, but in 2006 and after we see most of the top states scatter dramatically across the plot.' + \
-                		   ' In fact, pay close attention to the price range values on the x-axis as they dramatically change. In 2000 nearly all of the top states are within 15 cents of each other, and this is also seen in 2005 where'+\
-                		   ' they are within $0.10 of each other. By 2013, the top states are on a range that spans a $0.40 difference, and within a full dollar range in 2018. The price range in 2000 was from $0.52-0.68, and ends in a range from $1.80-$3.40 in 2018.' +\
-                		   ' One hypothesis that can be drawn from this visual is that the honey market may have indeed been affected by CCD. Perhaps the stressors that are now recorded by the USDA could have correlation to the changing price and honey yield values, but further analysis would be required to determine this by merging the colony and production datasets. This will be the main focus of the next blog. '),
+                		   ' Finally, hovering over any of the bubbles triggers a tooltip popup that summarizes the information about the current observation.'),
                            
                     #paragraph
                     html.Div([
@@ -146,7 +126,7 @@ app.layout = html.Div(children=[
                     children = [
                     #Dropdown selector
                     html.Div(
-                        className = 'three columns',
+                        className = 'five columns',
                         children=[
                             dcc.Dropdown(
                                     id = 'dropdown1',
@@ -180,7 +160,7 @@ app.layout = html.Div(children=[
                                         max=16,
                                         marks = slider_markers,
                                         value=1,
-                                        size = 750,
+                                        size = 700,
                                         handleLabel={"showCurrentValue":True, "label": "VALUE"}
                                 ),
                     ], style={'margin-top':'5%', 'margin-left':'3%'}),
@@ -232,7 +212,7 @@ app.layout = html.Div(children=[
                               		max=2018,
                                     marks={i: 'Label {}'.format(i) if i == 1 else str(i) for i in range(2000, 2019)},
                                     value=2000,
-                                    size = 750,
+                                    size = 700,
                                     handleLabel={"showCurrentValue":True, "label": "VALUE"}
                                 ),
                             ], style={'margin-top':'5%', 'margin-left':'3%'}), 
@@ -291,7 +271,7 @@ def update_bubble_plot(slider_):
    #Call generaete_bubble_chart from clean_colony_data.py
    #value n can be adjusted for the number of data points
    #on the plot. n = 15
-   figure = generate_bubble_chart(honey_data, slider_, 15)
+   figure = generate_bubble_chart(honey_data, slider_, 10)
    return figure
 
 #---------------------launch app----------------------------------------------
