@@ -132,7 +132,7 @@ def generate_map_object(input_, period_, category_):
     fig.update_layout(
         
         height=500,
-        width=800,
+        width=700,
         title_text= 'Honey Bee Colony Populations Affected By '+ stressor_keys[category_] + " " + str(period_) + '<br>(Hover for breakdown)',
         geo = dict(
             scope='usa',
@@ -193,7 +193,7 @@ def generate_line_plot(input_, col_names, state_):
         
     
     fig.update_layout(
-        width = 800,
+        width = 700,
         height = 500,
         xaxis=dict(
             showline=True,
@@ -298,7 +298,7 @@ def generate_bubble_chart(input_, year_, n):
                                             color='rgb(37,37,37)'),
                                   showarrow=False))
     # Source
-    annotations.append(dict(xref='paper', yref='paper', x=0.5, y=-0.1,
+    annotations.append(dict(xref='paper', yref='paper', x=0.5, y=-0.15,
                                   xanchor='center', yanchor='top',
                                   text='Source: United States Department of Agriculture (USDA)',
                                   font=dict(family='Arial',
@@ -306,9 +306,11 @@ def generate_bubble_chart(input_, year_, n):
                                             color='rgb(150,150,150)'),
                                   showarrow=False))
     
-    fig.update_layout(height=600, width = 800,annotations=annotations,
+    fig.update_layout(height=600, width = 700,annotations=annotations,
                      xaxis_title = "Avg. Price Per Pound ($US)",
                      yaxis_title = "Yield Per Colony (lbs.)",
                      plot_bgcolor = 'white')
     
     return fig
+
+
