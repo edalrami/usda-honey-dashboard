@@ -9,10 +9,6 @@ import dash_daq as daq
 from clean_honey_data import *
 import pandas as pd
 
-#CSS style sheet used
-external_stylesheets_ = ['https://codepen.io/edalrami/pen/MWKYadE', 'https://codepen.io/edalrami/pen/QWywwYr']
-
-
 #import data
 honey_data = pd.read_csv('all_honey_data.csv')
 colony_data = pd.read_csv('all_colony_data.csv')
@@ -38,9 +34,10 @@ state_names = get_state_names()
 
 #---------------------------------DASH LAYOUT---------------------------------------------------------
 #Create dash instance to initialize app
-app = dash.Dash(__name__, external_stylesheets = external_stylesheets_)
+app = dash.Dash(__name__)
 server = app.server 
-
+app.css.config.serve_locally = True
+app.scripts.config.serve_locally = True
 
 app.title = "Honey Report"
 app.layout = html.Div(children=[
