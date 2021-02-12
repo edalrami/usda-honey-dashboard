@@ -10,7 +10,7 @@ from clean_honey_data import *
 import pandas as pd
 
 #CSS style sheet used
-external_stylesheets_ = ['https://codepen.io/edalrami/pen/MWKYadE.css', 'https://codepen.io/edalrami/pen/QWywwYr.css']
+external_stylesheets_ = ['https://codepen.io/edalrami/pen/MWKYadE', 'https://codepen.io/edalrami/pen/QWywwYr']
 
 
 #import data
